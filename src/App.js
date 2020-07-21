@@ -1,28 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Kpi from './components/Kpi'
+import Header from './components/Header'
+import kpiData from '/Users/ruari/OneDrive/Documents/Repos/kpi_adjustment/src/data/kpidata'
 
+class App extends React.Component {
+            
+    render() {
 
+        const foo = ['LQR01b','LQR17b','LQR18']
+        
+        const kpiComponents = foo.map(item => {
+            return <Kpi measure={<h2>{item}</h2>} />
+        })
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
+        return(
+            <div>
+                <Header />
+                {kpiComponents}
+            </div>
+        )
+    }
+}
 
 export default App;
